@@ -14,8 +14,7 @@ class CustomerController extends Controller
 
 	public function index()
 	{
-		$customers = CustomerResource::collection(Customer::all())
-			->sortByDesc('id');
+		$customers = CustomerResource::collection(Customer::all());
 
 		return response(
 			$customers,
@@ -54,7 +53,7 @@ class CustomerController extends Controller
 	public function show(Customer $customer)
 	{
 		return response(
-			new CustomerResource($customer),
+			[$customer],
 			200
 		);
 	}
